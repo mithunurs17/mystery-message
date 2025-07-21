@@ -10,12 +10,13 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/Form';
+} from '@/components/ui/form';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/Input';
+import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useToast } from '@/components/ui/toast/use-toast';
+// Update the import path to the correct location, for example:
+import { useToast } from '@/components/ui/use-toast';
 import { signInSchema } from '@/schemas/signInSchema';
 
 export default function SignInForm() {
@@ -72,7 +73,7 @@ export default function SignInForm() {
             <FormField
               name="identifier"
               control={form.control}
-              render={({ field }) => (
+              render={({ field }: { field: import('react-hook-form').ControllerRenderProps<z.infer<typeof signInSchema>, 'identifier'> }) => (
                 <FormItem>
                   <FormLabel>Email/Username</FormLabel>
                   <Input {...field} />
@@ -83,7 +84,7 @@ export default function SignInForm() {
             <FormField
               name="password"
               control={form.control}
-              render={({ field }) => (
+              render={({ field }: { field: import('react-hook-form').ControllerRenderProps<z.infer<typeof signInSchema>, 'password'> }) => (
                 <FormItem>
                   <FormLabel>Password</FormLabel>
                   <Input type="password" {...field} />
