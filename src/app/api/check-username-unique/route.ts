@@ -15,8 +15,7 @@ export async function GET(request: Request) {
     const queryParams = {
       username: searchParams.get('username'),
     };
-// Validate the query parameters using Zod
-// This will ensure that the username is a valid string and meets the criteria defined in usernameValidation
+
     const result = UsernameQuerySchema.safeParse(queryParams);
 
     if (!result.success) {
